@@ -29,7 +29,19 @@ section::before {
 .navbar {
     background-color: white;
     box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 128px;
+    position: sticky;
+    top: 0;
+    z-index: 5;
 }
+
+.bounceIn {
+    animation: bounceIn 2s;
+}
+
 
 .home h1 {
     font-size: 72px;
@@ -37,6 +49,10 @@ section::before {
 
 .home h3 {
     font-size: 48px;
+}
+
+.home img{
+    width: 100%;
 }
 
 .home .arrow img{
@@ -148,6 +164,20 @@ form label {
     font-weight: 700;
 }
 
+@media only screen and (max-width: 768px) {
+    .home img{
+        width: 50%;
+    }
+}
+
+
+@media only screen and (max-width: 576px) {
+    section::before {
+        left: -10px;
+        font-size: 64px;
+    }
+}
+
 
 @keyframes upDown {
     0% {
@@ -159,6 +189,25 @@ form label {
     }
 
     100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        filter: opacity(0);
+        transform: translateY(-40px);
+    }
+    35% {
+        filter: opacity(0.25);
+        transform: translateY(0);
+    }
+    70% {
+        filter: opacity(0.5);
+        transform: translateY(-20px);
+    }
+    100% {
+        filter: opacity(1);
         transform: translateY(0);
     }
 }
